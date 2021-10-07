@@ -1,0 +1,9 @@
+# IDE and code editor stuff (maybe you'll want to allow some)
+.vs/
+.idea/
+
+# the gianormous node_modules
+node_modules/
+
+# build
+dist/

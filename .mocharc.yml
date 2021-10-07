@@ -1,0 +1,11 @@
+extension: [ 'ts' ]
+spec:
+  - 'src/**/*.spec.ts'
+timeout: 2000
+ui: 'bdd'
+v8-stack-trace-limit: 100
+watch: false
+watch-files:
+  - 'src/**/*.ts'
+require:
+  - ts-node/register
