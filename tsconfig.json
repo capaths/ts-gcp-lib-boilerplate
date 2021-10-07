@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "typeRoots": [
-      "node_modules/@types"
+      "node_modules/@types",
+      "typings" // you can create your .d.ts on a directory called "typings" at the root this project
     ],
     "target": "es5",
     "module": "commonjs",
@@ -13,10 +14,17 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "removeComments": true,
+    "sourceMap": false,
+    "declarationMap": false,
     "lib": [
       "es2016"
     ]
   },
+  "exclude": [
+    "./src/**/*.spec.ts",
+    "./dist/**/*"
+  ],
   "include": [
     "."
   ]
