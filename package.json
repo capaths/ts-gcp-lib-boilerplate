@@ -6,7 +6,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "mocha",
-    "preinstall": "npm run build",
+    "postinstall": "npm run build",
     "build": "tsc --project ./tsconfig.json"
   },
   "repository": {
@@ -20,7 +20,6 @@
     "simple"
   ],
   "author": "Paths Ankan",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/capaths/typescript-library-boilerplate/issues"
   },
