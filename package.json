@@ -1,36 +1,38 @@
 {
-  "name": "typescript-library-boilerplate",
-  "version": "1.0.0",
+  "name": "@<PACKAGE-SCOPE>/<PACKAGE-NAME>",
+  "version": "0.1.0",
+  "author": "<YOUR-NAME-HERE>",
+  "config": {
+    "scope": "<PACKAGE-SCOPE>",
+    "name": "<PACKAGE-NAME>",
+    "location": "<PROJECT-LOCATION>",
+    "repository": "<PACKAGE-REPOSITORY>"
+  },
   "description": "A lazy TypeScript library boilerplate (the minimal of the minimal)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "mocha",
     "postinstall": "npm run build",
-    "build": "tsc --project ./tsconfig.json"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/capaths/typescript-library-boilerplate.git"
+    "build": "tsc --project ./tsconfig.json",
+    "schema:build": "typescript-json-schema ./tsconfig.json * --out dist/schema.json",
+    "artifactregistry:login": "npx google-artifactregistry-auth",
+    "npmrc:build": "gcloud artifacts print-settings npm --scope=@$npm_package_config_scope --location=$npm_package_location --repository=$npm_package_config_repository --project nirby-prod > .npmrc",
+    "npmrc:login": "npx google-artifactregistry-auth .npmrc",
+    "prepublishOnly": "npm run build:npmrc && npm run artifactregistry:login"
   },
   "keywords": [
-    "boilerplate",
-    "typescript",
-    "lazy",
-    "simple"
+    "typescript"
   ],
-  "author": "Paths Ankan",
-  "bugs": {
-    "url": "https://github.com/capaths/typescript-library-boilerplate/issues"
-  },
-  "homepage": "https://github.com/capaths/typescript-library-boilerplate#readme",
   "devDependencies": {
     "@types/mocha": "^9.0.0",
     "@types/should": "^13.0.0",
     "mocha": "^9.1.1",
+    "readline-sync": "^1.4.10",
+    "should": "^13.2.3",
     "ts-node": "^10.2.1",
     "tslint": "^6.1.3",
     "typescript": "^4.4.3",
-    "should": "^13.2.3"
+    "typescript-json-schema": "^0.51.0"
   }
 }
