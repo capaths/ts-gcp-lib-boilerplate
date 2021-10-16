@@ -6,20 +6,11 @@ This is a boilerplate to generate a library that can be published immediately to
 
 1. Create a repository at your Google Cloud Project **Artifact Registry**:
 2. Set-up your ``package.json`` file. You can do this two ways:
-    1. **Automatically**: Execute the following script and answer the question:
+    1. **Automatically**: Execute the following script and set the shown variables or use the default values:
 
 ````shell
 node ./scripts/setup.js
 ````
-
-2. **Manually**: Replace the following values on the ``package.json`` file. More specifically, on the ``name``
-   , ``author``
-   and ``config`` keys:
-    * ``<PACKAGE-SCOPE>``: The scope you want your dependants to use to import this package.
-    * ``<YOUR-NAME-HERE>``: This package's author's name.
-    * ``<PACKAGE-NAME>``: This package's name.
-    * ``<PROJECT-LOCATION>``: The location of your Google Cloud Project.
-    * ``<PACKAGE-REPOSITORY>``: The artifact registry's repository name.
 
 ## How to publish this package
 

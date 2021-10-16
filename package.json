@@ -18,9 +18,10 @@
         "build": "tsc --project ./tsconfig.json",
         "schema:build": "typescript-json-schema ./tsconfig.json * --out dist/schema.json",
         "artifactregistry:login": "npx google-artifactregistry-auth",
+        "setup": "node ./scripts/setup.js",
         "npmrc:build": "gcloud artifacts print-settings npm --scope=@my-scope --location=us-central1 --repository=my-scope --project my-project > .npmrc",
         "npmrc:login": "npx google-artifactregistry-auth .npmrc",
-        "prepublishOnly": "npm run build:npmrc && npm run artifactregistry:login"
+        "prepublishOnly": "npm run build && npm run npmrc:build && npm run npmrc:login"
     },
     "keywords": [
         "typescript"
