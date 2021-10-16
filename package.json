@@ -1,5 +1,5 @@
 {
-  "name": "@<PACKAGE-SCOPE>/<PACKAGE-NAME>",
+  "name": "@my-scope/package-name",
   "version": "0.1.0",
   "author": "<YOUR-NAME-HERE>",
   "config": {

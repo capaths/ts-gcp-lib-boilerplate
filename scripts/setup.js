@@ -26,4 +26,11 @@ packageJson.config = {
     "repository": repository
 };
 
+const npmrcBuild = "gcloud artifacts print-settings npm --scope=@$npm_package_config_scope --location=$npm_package_location --repository=$npm_package_config_repository --project nirby-prod > .npmrc"
+    .replaceAll('$npm_package_config_scope', scope)
+    .replaceAll('$npm_package_location', scope)
+    .replaceAll('$npm_package_config_repository', scope);
+
+packageJson.scripts["npmrc:build"] = npmrcBuild;
+
 fs.writeFileSync(PACKAGE_JSON, JSON.stringify(packageJson, undefined, 4), {encoding: 'utf8',flag:'w'});
